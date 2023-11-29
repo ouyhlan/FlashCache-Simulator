@@ -1,5 +1,6 @@
 #pragma once
 
+#include <libconfig.h++>
 #include <iostream>
 
 namespace misc {
