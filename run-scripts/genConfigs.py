@@ -431,6 +431,7 @@ def arg_parser():
     cache_setup.add_argument('--adjust-up-flash-capacity', dest='cache_setup', 
             action=LayeredAction, const='adjust_flash_cap')
     cache_setup.add_argument('--no-flash', dest='cache_setup', action=LayeredAction, const='no_flash')
+    cache_setup.add_argument('--set_dist', dest='cache_setup', action=LayeredAction, const='set_dist')
     cache_setup.add_argument('--rotating-kb', dest='cache_setup', action=LayeredAction, const='rotating', nargs='+')
     cache_setup.add_argument('--set-caps', dest='cache_setup', action=LayeredAction, const='set_capacities', nargs='+')
     cache_setup.add_argument('--rrip', dest='cache_setup', action=LayeredAction, const='rrip', metavar='bits', nargs='+')

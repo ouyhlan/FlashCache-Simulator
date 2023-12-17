@@ -45,3 +45,7 @@ __pycache__
 run-scripts/configs
 run-scripts/output
 simulator/bin
+simulator/*.log
+
+# Vscode
+.vscode

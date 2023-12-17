@@ -25,6 +25,6 @@ const uint64_t EVICT_SET_LIMIT = 16000; // high enough to not really effect resu
 const int RRIP_LONG_DIFF = 1; // less than distant
 const int RRIP_DISTANT_DIFF = 1;
 const double AVG_OBJ_SIZE_BYTES = 330; // just for memory estimate
-
+const int OBJ_SIZE_RANGE = 100;
 }
 

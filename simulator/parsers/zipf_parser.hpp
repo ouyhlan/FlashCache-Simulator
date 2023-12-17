@@ -35,6 +35,7 @@ public:
       req.id = obj_id;
       req.req_size = obj_size;
       req.req_num = i;
+      // std::cout << "id: " << obj_id << ", size: " << obj_size << "\n";
       visit(req);
     }
   }

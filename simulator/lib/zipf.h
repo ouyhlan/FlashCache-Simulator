@@ -1,3 +1,5 @@
+#include "constants.hpp"
+#include <cstdint>
 #include <math.h>
 #include <iostream>
 #include <fstream>
@@ -52,8 +54,13 @@ public:
             infile.close();
         }
         if(base_sizes.size()==0) {
-            base_sizes = std::vector<int64_t>(
-                    {64});
+            uint64_t idx = 0;
+            uint64_t size = flashCache::AVG_OBJ_SIZE_BYTES - flashCache::OBJ_SIZE_RANGE;
+            base_sizes.reserve(flashCache::OBJ_SIZE_RANGE * 2);
+            for (; idx < flashCache::OBJ_SIZE_RANGE * 2; idx++) {
+                base_sizes.push_back(size++);
+            }
+
         }
         std::uniform_int_distribution<uint64_t> size_dist(0,base_sizes.size()-1);
 
