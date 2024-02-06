@@ -46,6 +46,7 @@ run-scripts/configs
 run-scripts/output
 simulator/bin
 simulator/*.log
+.cache
 
 # Vscode
 .vscode

@@ -188,6 +188,16 @@ def rotating_log(exp, block_sizes):
         out.append(new_exp)
     return out
 
+def qlog(exp, threholds):
+    exp.name += f'-qlogCompactionThrehold'
+    out = []
+    for num in threholds:
+        new_exp = exp.clone()
+        new_exp.name += f'{num}'
+        new_exp.cfg['qlog.compactionThrehold'] = int(num)
+        out.append(new_exp)
+    return out
+
 def add_rrip(exp, rrip_bits):
     out = []
     for bits in rrip_bits:
@@ -347,6 +357,9 @@ def generate_base_exps(args):
                 base_exps = expand(base_exps, rotating_log, args.cache_setup['rotating'])
             elif 'multilog' in args.cache_setup:
                 base_exps = expand(base_exps, multilog, args.cache_setup['multilog'])
+            elif 'qlog' in args.cache_setup:
+                base_exps = expand(base_exps, qlog, args.cache_setup['qlog'])
+
     return base_exps
 
 def add_traces(exps, trace_args):
@@ -435,6 +448,7 @@ def arg_parser():
     cache_setup.add_argument('--rotating-kb', dest='cache_setup', action=LayeredAction, const='rotating', nargs='+')
     cache_setup.add_argument('--set-caps', dest='cache_setup', action=LayeredAction, const='set_capacities', nargs='+')
     cache_setup.add_argument('--rrip', dest='cache_setup', action=LayeredAction, const='rrip', metavar='bits', nargs='+')
+    cache_setup.add_argument('--compaction-threhold', dest='cache_setup', action=LayeredAction, const='qlog', nargs='+')
     cache_setup.add_argument('--no-sets', dest='cache_setup', action=LayeredAction, const='no_sets')
 
     admission = parser.add_argument_group('admission policies')

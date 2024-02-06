@@ -1,0 +1,2 @@
+./genConfigs.py kangaroo-zipf --log 5 --rrip 3 --zipf 0.9 --readmission 1 --mem-size-MB 5 --flash-size-MB 20 --rotating-kb 256 --multiple-admission-policies --pre-log-random .9 --threshold 2 --set_dist
+./genConfigs.py zones-zipf --log 5 --zipf 0.9 --mem-size-MB 5 --flash-size-MB 20 --pre-log-random .9 --compaction-threhold 16
